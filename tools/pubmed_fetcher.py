@@ -81,3 +81,18 @@ def fetch_pubmed_articles_with_metadata(query: str, max_results=3, use_mock_if_e
 
                 # PubMed Article URL
                 url = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
+
+                print(f"Article: {title}\n  - Authors: {authors}\n   - Date: {pub_date}\n   - URL: {url}\n")
+                articles_info.append({
+                    "title": title,
+                    "abstract": abstract,
+                    "authors": authors,
+                    "publication_date": pub_date,
+                    "article_url": url
+                })
+
+            if not articles_info and use_mock_if_empty:
+                print("No valid articles found, returning mock data.")
+                return [{
+                    "title": "Simulated Study on Fever"
+                }]
