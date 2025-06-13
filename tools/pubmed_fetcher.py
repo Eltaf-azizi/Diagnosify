@@ -45,6 +45,7 @@ def fetch_pubmed_articles_with_metadata(query: str, max_results=3, use_mock_if_e
         for article, pmid in zip(articles_xml, id_list):
             title_tag = article.find("articletitle")
             abstract_tag = article.find("pubdate")
+            date_tag = article.find("pubdate")
             author_tags = article.find_all("author")
 
 
@@ -62,3 +63,21 @@ def fetch_pubmed_articles_with_metadata(query: str, max_results=3, use_mock_if_e
                 last = author.find("lastname")
                 fore = author.find("forename")
 
+                if last and fore:
+                    authors.append(f"{fore.get_text()} {last.get_text()}")
+                
+                elif last:
+                    authors.append(last.get_text())
+
+                authors = authors if authors else ["No authors listed"]
+
+
+                # Publication Date
+                pub_date = "No date"
+                if date_tag:
+                    year = date_tag.find("year")
+                    month = date_tag.find("month")
+                    pub_date = f"{month.get_text()} {year.get_text()}" if  year and month else year.get_text()
+
+                # PubMed Article URL
+                url = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
