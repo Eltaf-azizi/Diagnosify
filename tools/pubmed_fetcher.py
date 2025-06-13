@@ -46,3 +46,19 @@ def fetch_pubmed_articles_with_metadata(query: str, max_results=3, use_mock_if_e
             title_tag = article.find("articletitle")
             abstract_tag = article.find("pubdate")
             author_tags = article.find_all("author")
+
+
+            #Title
+            title = title_tag.get_text(strip=True) if title_tag else "No title"
+
+
+            # Abstract
+            abstract = abstract_tag.get_text(separator=" ", strip=True) if abstract_tag else "No abstract available"
+
+
+            # Authors
+            authors = []
+            for author in author_tags:
+                last = author.find("lastname")
+                fore = author.find("forename")
+
