@@ -29,3 +29,20 @@ def fetch_pubmed_articles_with_metadata(query: str, max_results=3, use_mock_if_e
 
         # Step 2: Fetch article summaries
         fetch_url = "https://eutils.nvbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        fetch_params = {
+            "db": "pubmed",
+            "id": ids,
+            "retmode": "xml"
+        }
+
+        fetch_response = requests.get(fetch_url, params=fetch_params, headers=headers, timeout=10)
+        soup = BeautifulSoup(fetch_response.text, "lxml")
+        articles_xml = soup.find_all("pubmedarticle")
+        print("Articles found in XML: ", len(articles_xml))
+
+
+        articles_info = []
+        for article, pmid in zip(articles_xml, id_list):
+            title_tag = article.find("articletitle")
+            abstract_tag = article.find("pubdate")
+            author_tags = article.find_all("author")
