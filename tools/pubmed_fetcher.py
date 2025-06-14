@@ -114,3 +114,6 @@ def fetch_pubmed_articles_with_metadata(query: str, max_results=3, use_mock_if_e
                 "publication_date": "June 2025",
                 "article_url": "https://pubmed.ncbi.nlm.nih.gov/12345678/"
             }]
+        
+        else:
+            return [{"message": f"Error: {e}"}]
