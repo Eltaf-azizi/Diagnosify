@@ -14,6 +14,7 @@ class SymptomInput(BaseModel):
 
 
 
+@app.post("/diagnosis")
 def diagnose_patient(data:SymptomInput):
     symptoms = extract_symptoms(data.description)
     diagnosis = get_diagnosis(symptoms)
