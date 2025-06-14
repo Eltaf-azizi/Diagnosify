@@ -94,5 +94,23 @@ def fetch_pubmed_articles_with_metadata(query: str, max_results=3, use_mock_if_e
             if not articles_info and use_mock_if_empty:
                 print("No valid articles found, returning mock data.")
                 return [{
-                    "title": "Simulated Study on Fever"
+                    "title": "Simulated Study on Fever",
+                    "abstract": "This is a simulated Study on Fever",
+                    "authors": ["John Doe", "Jane Smith"],
+                    "publication_date": "June 2025",
+                    "article_url": "https://pubmed.ncbi.nlm.nih.gov/12345678/"
                 }]
+            return articles_info
+        
+
+    except Exception as e:
+        print(f"Error during PubMed fetch: {e}")
+
+        if use_mock_if_empty:
+            return [{
+                "title": "Simulated Study on Fever",
+                "abstract": "This is a simulated abstract on the treatment of fever in adults.",
+                "authors": ["John Doe", "Jane Smith"],
+                "publication_date": "June 2025",
+                "article_url": "https://pubmed.ncbi.nlm.nih.gov/12345678/"
+            }]
