@@ -11,3 +11,19 @@ app = FastAPI()
 
 class SymptomInput(BaseModel):
     description: str
+
+
+
+def diagnose_patient(data:SymptomInput):
+    symptoms = extract_symptoms(data.description)
+    diagnosis = get_diagnosis(symptoms)
+    pubmed_raw = fetch_pubmed_articles_with_metadata(" ".join(symptoms))
+    summary = summarize_text(pubmed_raw[:3000])
+
+
+    return {
+        "symptom": symptoms,
+        "diagnosis": diagnosis,
+        "pubmed_summary": summary
+    }
+
