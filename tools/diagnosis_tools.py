@@ -8,7 +8,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
 def get_diagnosis(symptoms: list[str]) -> str:
-    prompt = f"Patient has symptoms: {', '.join(symptoms)}. Suggest posible medical diagnosis."
+    prompt = f"Patient has symptoms: {', '.join(symptoms)}. Suggest posible medical diagnosis. suggest me a possible cure for the same"
 
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
