@@ -37,4 +37,26 @@ Built for **doctors, medical researchers, and healthcare AI applications**.
  - Citations from medical literature
 
 
+## ⚙️ Setup
+### Prerequisites
+ - Python 3.9+
+
+ - OpenAI API key
+
+ - PubMed API access (optional)
+
+### Installation
+```bash
+git clone https://github.com/your-repo/medical-diagnosis-ai.git  
+cd medical-diagnosis-ai  
+pip install -r requirements.txt
+```
+### Configuration
+Add your API keys to `config.yaml`:
+
+```yaml
+openai_api_key: "your-api-key"  
+pubmed_api_key: "optional-pubmed-key"  
+```
+
 
