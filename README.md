@@ -59,4 +59,28 @@ openai_api_key: "your-api-key"
 pubmed_api_key: "optional-pubmed-key"  
 ```
 
+## 🚀 Usage
+### Basic Diagnosis
+```python
+from diagnosis_agent import MedicalAIAgent  
+
+agent = MedicalAIAgent()  
+response = agent.diagnose(  
+    symptoms="headache, fever, stiff neck for 3 days",  
+    age=32,  
+    gender="male"  
+)
+  
+
+print(response.diagnoses)  # Ranked list of possible conditions  
+print(response.research_summary)  # PubMed insights (if enabled)
+```
+### Advanced Options
+ - Enable/disable PubMed lookup
+
+ - Adjust confidence thresholds
+
+ - Custom symptom weighting
+
+
 
