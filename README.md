@@ -12,3 +12,29 @@ This AI agent follows the Model Context Protocol (MCP) to:
  - Generate a ranked list of possible conditions with confidence scores
 
 Built for **doctors, medical researchers, and healthcare AI applications**.
+
+
+## 🛠️ Features
+
+### 1. Symptom Analysis & Context Extraction
+ - NLP-powered symptom parsing
+
+ - Key medical concept extraction (e.g., duration, severity, related conditions)
+
+### 2. AI-Powered Differential Diagnosis
+ - GPT-3.5-turbo generates possible conditions based on symptoms
+
+ - Confidence scoring for each potential diagnosis
+
+### 3. PubMed API Integration
+ - Real-time medical research lookup
+
+ - Summarization of the latest studies related to symptoms
+
+### 4. Explainable AI (XAI) Output
+ - Clear reasoning for each diagnosis
+
+ - Citations from medical literature
+
+
+
