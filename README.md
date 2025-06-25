@@ -95,3 +95,15 @@ print(response.research_summary)  # PubMed insights (if enabled)
 └── requirements.txt      # Dependencies  
 ```
 
+
+## 🤝 Contributing
+We welcome medical professionals & AI researchers to improve diagnostic accuracy!
+
+ - Report issues for misdiagnoses
+
+ - Suggest PubMed query optimizations
+
+ - Add new symptom parsing rules
+
+<h3 align="center">Happy Coding!</h3>
+
