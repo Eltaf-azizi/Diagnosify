@@ -83,4 +83,15 @@ print(response.research_summary)  # PubMed insights (if enabled)
  - Custom symptom weighting
 
 
+## 📂 Repository Structure
+```text
+.
+├── diagnosis_agent/       # Core AI module (MCP implementation)  
+│   ├── symptom_parser.py  # NLP symptom processing  
+│   ├── openai_diagnoser.py  # GPT-3.5 diagnosis engine  
+│   └── pubmed_integration.py  # Research fetcher  
+├── tests/                # Unit & integration tests  
+├── config.yaml           # API & settings  
+└── requirements.txt      # Dependencies  
+```
 
